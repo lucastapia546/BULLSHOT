@@ -28,9 +28,8 @@ class Config:
     min_price: float
     blocked_symbols: frozenset[str]
     server_name: str
-    read_patterns: tuple[str, ...]
+    allowed_tools: frozenset[str]
     order_patterns: tuple[str, ...]
-    forbidden_patterns: tuple[str, ...] = field(default_factory=tuple)
     graduation: dict = field(default_factory=dict)
 
 
@@ -52,8 +51,7 @@ def load_config(path: Path | None = None) -> Config:
         min_price=float(u["min_price"]),
         blocked_symbols=frozenset(s.upper() for s in u.get("blocked_symbols", [])),
         server_name=m["server_name"],
-        read_patterns=tuple(p.lower() for p in m["read_patterns"]),
-        order_patterns=tuple(p.lower() for p in m["order_patterns"]),
-        forbidden_patterns=tuple(p.lower() for p in m.get("forbidden_patterns", [])),
+        allowed_tools=frozenset(m["allowed_tools"]),
+        order_patterns=tuple(p.lower() for p in m.get("order_patterns", [])),
         graduation=dict(raw.get("graduation", {})),
     )
