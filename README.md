@@ -1,0 +1,2 @@
+# BULLSHOT
+autonomous investmnet agent
