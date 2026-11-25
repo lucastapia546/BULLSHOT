@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper trading report</title>
+<style>
+.viz-root { color-scheme: light; --surface-1:#ffffff; --surface-2:#f6f6f4; --border:#e4e4e0;
+  --text-primary:#191919; --text-secondary:#666666; --series-1:#257de0; --series-2:#f47230;
+  --good:#008a17; --wait:#b26b00; }
+@media (prefers-color-scheme: dark) { :root:where(:not([data-theme="light"])) .viz-root { color-scheme: dark;
+  --surface-1:#191919; --surface-2:#222220; --border:#333331; --text-primary:#efefef; --text-secondary:#9c9c9c;
+  --series-1:#338ced; --series-2:#e76624; --good:#0aac23; --wait:#d28e05; } }
+* { box-sizing:border-box }
+body { margin:0; font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif }
+.viz-root { background:var(--surface-2); color:var(--text-primary); min-height:100vh; padding:28px }
+main { max-width:1080px; margin:0 auto }
+h1 { font-size:24px; margin:0 0 4px } h2 { font-size:16px; margin:0 0 12px }
+.muted { color:var(--text-secondary) }
+.badge { display:inline-block; font-size:12px; font-weight:600; padding:2px 8px; border-radius:99px;
+  border:1px solid var(--border); margin-left:8px; vertical-align:middle }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:20px 0 }
+.tile, .card { background:var(--surface-1); border:1px solid var(--border); border-radius:12px; padding:16px }
+.tile .k { font-size:12px; color:var(--text-secondary) } .tile .v { font-size:22px; font-weight:600; font-variant-numeric:tabular-nums }
+.card { margin-bottom:16px }
+.verdict { font-weight:600 } .verdict.good { color:var(--good) } .verdict.wait { color:var(--wait) }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px } @media (max-width:760px) { .grid2 { grid-template-columns:1fr } }
+table { width:100%; border-collapse:collapse; font-size:14px }
+th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--border); vertical-align:top }
+th { font-weight:600; color:var(--text-secondary); font-size:12px }
+.num { text-align:right; font-variant-numeric:tabular-nums }
+.tag { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-secondary) }
+ul.notes { list-style:none; padding:0; margin:0 } ul.notes li { padding:8px 0; border-bottom:1px solid var(--border) }
+.legend { display:flex; gap:16px; font-size:13px; margin-bottom:8px }
+.legend i { display:inline-block; width:14px; height:2px; vertical-align:middle; margin-right:6px }
+#chart { position:relative } #chart svg { width:100%; height:260px; display:block }
+#tip { position:absolute; pointer-events:none; background:var(--surface-1); border:1px solid var(--border);
+  border-radius:8px; padding:6px 10px; font-size:13px; display:none; white-space:nowrap; box-shadow:0 2px 8px rgba(0,0,0,.12) }
+</style></head>
+<body><div class="viz-root"><main>
+<h1>Paper trading report <span class="badge">PAPER MODE</span></h1>
+<div class="muted">Simulated $100 account. No real orders are placed in this mode.</div>
+
+<div class="tiles">
+ <div class="tile"><div class="k">Equity</div><div class="v">$100.00</div></div>
+ <div class="tile"><div class="k">Return</div><div class="v">+0.00%</div></div>
+ <div class="tile"><div class="k">SPY same period</div><div class="v">n/a</div></div>
+ <div class="tile"><div class="k">Win rate (0 closed)</div><div class="v">n/a</div></div>
+ <div class="tile"><div class="k">Max drawdown</div><div class="v">0.00%</div></div>
+ <div class="tile"><div class="k">Cash</div><div class="v">$100.00</div></div>
+</div>
+
+<div class="card">
+ <h2>Account vs SPY, indexed to 100</h2>
+ <div class="legend"><span><i style="background:var(--series-1)"></i>Paper account</span>
+  <span><i style="background:var(--series-2)"></i>SPY buy-and-hold</span></div>
+ <div id="chart"><svg id="svg" role="img" aria-label="Paper account value versus SPY, both indexed to 100"></svg><div id="tip"></div></div>
+</div>
+
+<div class="grid2">
+ <div class="card"><h2>Ready for real money?</h2><p class="verdict wait">Not ready for real money yet. Keep paper trading.</p>
+  <table><tr><th>Check</th><th class=num>Now</th><th class=num>Needed</th><th>Status</th></tr><tr><td>Trading days</td><td class=num>1</td><td class=num>≥ 20</td><td>✗ not yet</td></tr><tr><td>Closed trades</td><td class=num>0</td><td class=num>≥ 15</td><td>✗ not yet</td></tr><tr><td>Total return %</td><td class=num>0.0</td><td class=num>≥ 2.0</td><td>✗ not yet</td></tr><tr><td>Max drawdown %</td><td class=num>0.0</td><td class=num>≤ 8.0</td><td>✓ met</td></tr><tr><td>Beat SPY by (pts)</td><td class=num>n/a</td><td class=num>> 0</td><td>✗ not yet</td></tr></table></div>
+ <div class="card"><h2>Takeaways</h2><ul class="notes"><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>The trend filter kept us out of a broad selloff (SPY about 6% below its 10-day high). Lesson to track: in a downtrend market this strategy may sit idle for many days, which slows progress toward the 15-closed-trade graduation bar. Don&#x27;t loosen rules mid-test; revisit between sessions if idle streak exceeds ~5 days.</li><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>Day 1 (Nov 25): no trade. 9 of 10 watchlist names are below their 50-day average (SPY 716.23 vs 758.64, QQQ 632.54 vs 708.47, NVDA 147.81 vs 204.95, -4.9% today). Only AAPL is in an uptrend (354.69 vs 342.58), but it is just 1.7% off its 10-day high, short of the 3% pullback rule. Stayed 100% cash.</li></ul></div>
+</div>
+
+<div class="card"><h2>By strategy</h2>
+ <table><tr><th>Strategy</th><th class=num>Closed</th><th class=num>Win rate</th><th class=num>Realized P&amp;L</th></tr><tr><td colspan=4 class=muted>No closed trades yet</td></tr></table>
+ <p class="muted">Realized P&amp;L: $0.00</p></div>
+
+<div class="card"><h2>Trades</h2>
+ <table><tr><th>Day</th><th>Side</th><th>Symbol</th><th class=num>Amount</th><th class=num>Price</th><th>Strategy</th><th>Why</th></tr><tr><td colspan=7 class=muted>No trades yet</td></tr></table></div>
+
+<div class="card"><h2>Blocked by guardrails</h2>
+ <table><tr><th>Day</th><th>Order</th><th class=num>Amount</th><th>Why it was blocked</th></tr><tr><td colspan=4 class=muted>Nothing blocked</td></tr></table></div>
+</main></div>
+<script>
+const data = [{"day": "2026-11-25", "acct": 100.0, "spy": 100.0}];
+const svg = document.getElementById('svg'), tip = document.getElementById('tip');
+function draw() {
+  const W = svg.clientWidth, H = 260, L = 44, R = 16, T = 12, B = 28;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  if (data.length < 2) { svg.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle" fill="var(--text-secondary)">The chart fills in after two daily marks.</text>`; return; }
+  const vals = data.flatMap(d => [d.acct, d.spy]).filter(v => v != null);
+  let lo = Math.min(...vals, 100), hi = Math.max(...vals, 100); const pad = (hi - lo) * 0.1 || 1; lo -= pad; hi += pad;
+  const x = i => L + i * (W - L - R) / (data.length - 1), y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  const path = k => data.map((d, i) => d[k] == null ? '' : `${i && data[i-1][k] != null ? 'L' : 'M'}${x(i).toFixed(1)},${y(d[k]).toFixed(1)}`).join('');
+  let g = '';
+  for (let k = 0; k <= 4; k++) { const v = lo + (hi - lo) * k / 4;
+    g += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--border)"/>`+
+         `<text x="${L-6}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--text-secondary)">${v.toFixed(1)}</text>`; }
+  [0, data.length - 1].forEach(i => g += `<text x="${x(i)}" y="${H-8}" text-anchor="${i ? 'end' : 'start'}" font-size="11" fill="var(--text-secondary)">${data[i].day}</text>`);
+  g += `<path d="${path('spy')}" fill="none" stroke="var(--series-2)" stroke-width="2" stroke-linejoin="round"/>`;
+  g += `<path d="${path('acct')}" fill="none" stroke="var(--series-1)" stroke-width="2" stroke-linejoin="round"/>`;
+  g += `<line id="xh" y1="${T}" y2="${H-B}" stroke="var(--text-secondary)" stroke-dasharray="3 3" visibility="hidden"/>`;
+  g += `<circle id="d1" r="4" fill="var(--series-1)" stroke="var(--surface-1)" stroke-width="2" visibility="hidden"/>`;
+  g += `<circle id="d2" r="4" fill="var(--series-2)" stroke="var(--surface-1)" stroke-width="2" visibility="hidden"/>`;
+  g += `<rect x="${L}" y="0" width="${W-L-R}" height="${H}" fill="transparent" id="hit"/>`;
+  svg.innerHTML = g;
+  const hit = svg.querySelector('#hit'), xh = svg.querySelector('#xh'), d1 = svg.querySelector('#d1'), d2 = svg.querySelector('#d2');
+  hit.addEventListener('mousemove', ev => {
+    const r = svg.getBoundingClientRect(), px = ev.clientX - r.left;
+    const i = Math.max(0, Math.min(data.length - 1, Math.round((px - L) / (W - L - R) * (data.length - 1)))), d = data[i];
+    [xh, d1, d2].forEach(n => n.setAttribute('visibility', 'visible'));
+    xh.setAttribute('x1', x(i)); xh.setAttribute('x2', x(i));
+    d1.setAttribute('cx', x(i)); d1.setAttribute('cy', y(d.acct));
+    if (d.spy != null) { d2.setAttribute('cx', x(i)); d2.setAttribute('cy', y(d.spy)); } else d2.setAttribute('visibility', 'hidden');
+    tip.innerHTML = `<b>${d.day}</b><br>Paper account: ${d.acct.toFixed(2)}<br>SPY: ${d.spy == null ? 'n/a' : d.spy.toFixed(2)}`;
+    tip.style.display = 'block'; tip.style.left = Math.min(px + 12, W - 170) + 'px'; tip.style.top = '8px';
+  });
+  hit.addEventListener('mouseleave', () => { tip.style.display = 'none'; [xh, d1, d2].forEach(n => n.setAttribute('visibility', 'hidden')); });
+}
+draw(); addEventListener('resize', draw);
+</script></body></html>
