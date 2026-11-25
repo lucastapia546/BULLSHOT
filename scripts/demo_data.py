@@ -16,10 +16,11 @@ random.seed(7)
 cfg = load_config()
 conn = db.connect()
 conn.executescript("DELETE FROM trades; DELETE FROM marks; DELETE FROM notes; DELETE FROM rejections;")
-prices = {"AAPL": 228.0, "MSFT": 415.0, "NVDA": 180.0, "JPM": 245.0, "QQQ": 505.0}
+prices = {"AAPL": 228.0, "MSFT": 415.0, "NVDA": 180.0, "AMZN": 215.0, "GOOGL": 172.0, "META": 590.0,
+          "JPM": 245.0, "QQQ": 505.0, "XLE": 92.0}
 spy = 598.0
-day = date(2026, 10, 27)
-for n in range(22):
+day = date(2026, 10, 23)
+for n in range(23):
     while day.weekday() >= 5:
         day += timedelta(days=1)
     d = day.isoformat()
@@ -27,8 +28,8 @@ for n in range(22):
         prices[s] = round(prices[s] * (1 + random.gauss(0.0008, 0.015)), 2)
     spy = round(spy * (1 + random.gauss(0.0005, 0.008)), 2)
     if n % 3 == 0:
-        s = random.choice(list(prices))
-        if s not in db.positions(conn):
+        held = db.positions(conn)
+        for s in random.sample([s for s in prices if s not in held], 2):
             db.record_trade(conn, mode="paper", symbol=s, side="buy", dollars=20, price=prices[s],
                             strategy="pullback", reason=f"Pulled back 3.4% from 10-day high, above 50-day avg")
     elif n % 3 == 2:
@@ -44,6 +45,6 @@ db.record_rejection(conn, symbol="NVDA", side="buy", dollars=40, price=prices["N
                     reason="demo", blocked_by=["$40.00 is over the $25.00 per-order cap"])
 db.add_note(conn, "takeaway", "Two of three stop-losses came within a day of entry. Entries may be too early; "
             "consider waiting for a green day after the pullback.", day.isoformat())
-db.add_note(conn, "takeaway", "Winners averaged +4.3% vs losers -3.1%, so the plan works even near a 45% win rate.",
+db.add_note(conn, "takeaway", "Take-profits are paying more than stop-losses cost, so the plan can survive a few losing streaks.",
             day.isoformat())
 print("demo data written")
