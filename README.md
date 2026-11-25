@@ -33,10 +33,10 @@ tradeagent.cli  ──guardrails.py (config.toml caps)──▶  data/trades.db 
 
 1. Python 3.9+ (`python3 -m pip install -r requirements.txt`) and [Claude Code](https://code.claude.com).
 2. Clone this repo and `cd` into it.
-3. Connect Robinhood's MCP (you sign in on Robinhood's own page; never paste credentials into chat):
-   ```
-   claude mcp add robinhood-trading --transport http https://agent.robinhood.com/mcp/trading
-   ```
+3. Connect Robinhood's MCP. The repo's `.mcp.json` already registers `robinhood-trading`
+   (the same thing `claude mcp add robinhood-trading --transport http https://agent.robinhood.com/mcp/trading`
+   would do). Start Claude Code in this folder, approve the project server, then run `/mcp`, pick
+   **robinhood-trading** and Authenticate. You sign in on Robinhood's own page; never paste credentials into chat.
 4. In the Robinhood app, open the MCP account's Agent Settings and turn **Trade approvals on**,
    and leave that account unfunded while we're paper trading. Belt and braces on top of the hook.
 5. Start `claude` in this folder and run `/paper-day` once per trading day, ideally in the last hour
