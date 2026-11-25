@@ -1,0 +1,49 @@
+# Trading agent configuration. Every limit here is enforced in code
+# (tradeagent/guardrails.py) and by the Claude Code hook (tradeagent/hook_guard.py).
+
+# mode: "paper"   -> simulate fills at the quoted price, no real orders ever
+#       "propose" -> record proposals; Lucas places/approves them in the Robinhood app
+#       "live"    -> the agent may submit orders through the MCP, still inside every cap below
+mode = "paper"  # Lucas: paper trade until a winning plan is found (2026-11-25). No real orders.
+
+[budget]
+starting_capital = 100.00     # dollars in the dedicated Robinhood MCP account
+max_order_dollars = 25.00     # hard cap per order
+max_open_positions = 4
+max_orders_per_day = 3
+daily_loss_stop_pct = 5.0     # stop trading for the day after losing this % of equity
+min_cash_reserve = 10.00      # never deploy the last $10
+
+[graduation]
+# A strategy is only a candidate for real money once paper results clear ALL of these.
+# Switching to live still requires Lucas to edit `mode` by hand.
+min_trading_days = 20
+min_closed_trades = 15
+min_total_return_pct = 2.0     # over the paper period
+must_beat_benchmark = true     # vs buying and holding SPY over the same days
+max_drawdown_pct = 8.0
+
+[universe]
+asset_types = ["stock", "etf"]   # no options, crypto, margin, or short selling
+min_price = 5.00                 # avoid penny stocks
+blocked_symbols = []
+
+[mcp]
+server_name = "robinhood-trading"
+# Exact allowlist of read-only Robinhood tools (names checked against the live server on 2026-11-25).
+# Every other tool is blocked, including watchlist/scan/alert writes, banking and credit data,
+# options, crypto, and anything Robinhood adds later.
+allowed_tools = [
+  "get_accounts", "get_portfolio", "get_equity_positions", "get_equity_orders", "get_advanced_orders",
+  "get_equity_quotes", "get_equity_historicals", "get_equity_fundamentals", "get_equity_technical_indicators",
+  "get_equity_tradability", "get_equity_analyst_ratings", "get_equity_price_book", "get_equity_tax_lots",
+  "get_index_quotes", "get_index_historicals", "get_indexes",
+  "get_earnings_calendar", "get_earnings_results", "get_financials",
+  "get_sec_filing", "get_sec_filing_facts", "get_sec_filing_facts_catalog", "get_sec_filing_index",
+  "get_pnl_trade_history", "get_realized_pnl", "get_trade_approval_setting", "get_trade_approvals",
+  "get_watchlists", "get_watchlist_items", "get_popular_watchlists",
+  "get_scans", "get_scanner_datapoints", "get_scanner_filter_specs", "preview_scan", "run_scan",
+  "search", "get_politician_trades",
+]
+# Only used to explain a block; blocking never depends on these.
+order_patterns = ["place", "submit", "order", "exercise", "trade_approval"]
