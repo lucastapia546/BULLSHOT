@@ -6,6 +6,7 @@
         --strategy pullback --reason "Pulled back 3% to its 20-day average on light volume"
     python -m tradeagent.cli note --kind takeaway --text "..."
     python -m tradeagent.cli report
+    python -m tradeagent.cli site          # JSON for the dashboard in site/
 """
 from __future__ import annotations
 
@@ -79,6 +80,12 @@ def cmd_report(args, cfg, conn):
     print(f"wrote {path}")
 
 
+def cmd_site(args, cfg, conn):
+    from .site_data import write
+    path = write(conn, cfg, args.out, sample=args.sample)
+    print(f"wrote {path}")
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="tradeagent")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -102,12 +109,15 @@ def main(argv=None) -> int:
     n.add_argument("--day")
     r = sub.add_parser("report")
     r.add_argument("--out")
+    st = sub.add_parser("site", help="export the ledger as JSON for the dashboard site")
+    st.add_argument("--out")
+    st.add_argument("--sample", action="store_true", help="flag the export as sample data")
     args = p.parse_args(argv)
 
     cfg = load_config()
     conn = db.connect()
     handler = {"status": cmd_status, "mark": cmd_mark, "order": cmd_order,
-               "note": cmd_note, "report": cmd_report}[args.cmd]
+               "note": cmd_note, "report": cmd_report, "site": cmd_site}[args.cmd]
     return handler(args, cfg, conn) or 0
 
 

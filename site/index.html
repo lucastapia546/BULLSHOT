@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BULLSHOT · paper trading desk</title>
+<meta name="description" content="A $100 paper-trading agent, tracked trade by trade.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%233cf2a0'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="sample-banner" class="sample-banner" hidden>
+  Sample data. These are made-up trades so you can see the layout. Real paper runs replace them automatically.
+</div>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <span class="word">BULLSHOT</span>
+  </div>
+  <div class="top-meta">
+    <span class="pill"><span class="live-dot"></span><span id="mode">PAPER</span> MODE</span>
+    <span class="muted" id="updated">Loading…</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-main">
+      <div class="eyebrow">Simulated account · started with <span id="start-cap">$100</span></div>
+      <div class="equity" id="equity">$—</div>
+      <div class="hero-sub">
+        <span id="ret" class="chip">—</span>
+        <span class="muted">all time</span>
+        <span class="dot-sep"></span>
+        <span class="muted">SPY over the same days</span> <span id="spy" class="mono">—</span>
+        <span class="dot-sep"></span>
+        <span class="muted">Last day</span> <span id="daychg" class="mono">—</span>
+      </div>
+      <div class="vs" id="vs"></div>
+    </div>
+    <div class="road card">
+      <div class="road-head">
+        <h2>Road to real money</h2>
+        <span id="road-count" class="mono muted"></span>
+      </div>
+      <p id="verdict" class="verdict"></p>
+      <ol id="road" class="road-list"></ol>
+    </div>
+  </section>
+
+  <section class="map-wrap card">
+    <div class="section-head">
+      <div>
+        <h2>Trade map</h2>
+        <p class="muted">Every stock the agent has touched, pinned to where the company is based. Bigger pins saw more dollars. Green made money, red lost it. Pulsing pins are still held.</p>
+      </div>
+      <div class="legend">
+        <span><i class="lg gain"></i>Profit</span>
+        <span><i class="lg loss"></i>Loss</span>
+        <span><i class="lg flat"></i>Even</span>
+        <span><i class="lg ring"></i>Held now</span>
+      </div>
+    </div>
+    <div class="map-grid">
+      <div class="map" id="map">
+        <svg id="map-svg" role="img" aria-label="Map of the United States with a pin for each traded stock"></svg>
+        <div class="map-tip" id="map-tip" hidden></div>
+      </div>
+      <aside class="board">
+        <div class="board-head"><span>Leaderboard</span><span class="muted">P&amp;L</span></div>
+        <ol id="board"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles"></section>
+
+  <section class="card chart-card">
+    <div class="section-head">
+      <div>
+        <h2>Account vs SPY</h2>
+        <p class="muted">Both lines start at 100 on day one, so you can compare them directly.</p>
+      </div>
+      <div class="legend">
+        <span><i class="lg line acct"></i>Paper account</span>
+        <span><i class="lg line spy"></i>SPY buy-and-hold</span>
+      </div>
+    </div>
+    <div class="chart" id="chart"><svg id="chart-svg" role="img" aria-label="Paper account value versus SPY, both indexed to 100"></svg><div class="chart-tip" id="chart-tip" hidden></div></div>
+  </section>
+
+  <section class="two">
+    <div class="card">
+      <h2>Holding now</h2>
+      <div id="positions" class="positions"></div>
+    </div>
+    <div class="card">
+      <h2>What the agent learned</h2>
+      <ul id="notes" class="notes"></ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="section-head">
+      <h2>Trade tape</h2>
+      <div class="filters" id="filters">
+        <button class="on" data-f="all">All</button><button data-f="buy">Buys</button><button data-f="sell">Sells</button>
+      </div>
+    </div>
+    <ol id="tape" class="tape"></ol>
+  </section>
+
+  <section class="card">
+    <h2>Blocked by guardrails</h2>
+    <p class="muted">Orders the safety limits refused. The agent is not allowed to resize and retry.</p>
+    <ul id="blocks" class="blocks"></ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Paper trading only. No real orders are placed and no real money moves. Prices come from Robinhood's read-only market data; trades are simulated at the quoted price. Not investment advice.</p>
+  <p class="muted">Map: US Census boundaries via us-atlas. Pins sit at company or fund-sponsor headquarters.</p>
+</footer>
+
+<script src="assets/map-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

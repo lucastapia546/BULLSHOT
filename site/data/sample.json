@@ -1,0 +1,829 @@
+{
+ "schema": 1,
+ "generated_at": "2026-11-25T17:30:21+00:00",
+ "sample": true,
+ "mode": "paper",
+ "starting_capital": 100.0,
+ "limits": {
+  "max_order_dollars": 25.0,
+  "max_open_positions": 4,
+  "max_orders_per_day": 3
+ },
+ "summary": {
+  "equity": 103.64,
+  "cash": 63.54,
+  "total_return_pct": 3.64,
+  "benchmark_return_pct": 3.66,
+  "max_drawdown_pct": 0.21,
+  "closed_trades": 14,
+  "win_rate_pct": 71.4,
+  "realized_pnl": 3.54,
+  "ready_for_real_money": false,
+  "open_pnl": 0.11,
+  "day_change": 0.1
+ },
+ "graduation": [
+  {
+   "name": "Trading days",
+   "value": 23,
+   "target": 20,
+   "op": ">=",
+   "met": true
+  },
+  {
+   "name": "Closed trades",
+   "value": 14,
+   "target": 15,
+   "op": ">=",
+   "met": false
+  },
+  {
+   "name": "Total return %",
+   "value": 3.64,
+   "target": 2.0,
+   "op": ">=",
+   "met": true
+  },
+  {
+   "name": "Max drawdown %",
+   "value": 0.21,
+   "target": 8.0,
+   "op": "<=",
+   "met": true
+  },
+  {
+   "name": "Beat SPY by (pts)",
+   "value": -0.02,
+   "target": 0,
+   "op": ">",
+   "met": false
+  }
+ ],
+ "by_strategy": {
+  "pullback": {
+   "trades": 14,
+   "wins": 10,
+   "pnl": 3.54
+  }
+ },
+ "curve": [
+  {
+   "day": "2026-10-23",
+   "equity": 100.0,
+   "acct_index": 100.0,
+   "spy_index": 100.0
+  },
+  {
+   "day": "2026-10-26",
+   "equity": 100.07,
+   "acct_index": 100.07,
+   "spy_index": 101.37
+  },
+  {
+   "day": "2026-10-27",
+   "equity": 100.44,
+   "acct_index": 100.44,
+   "spy_index": 100.86
+  },
+  {
+   "day": "2026-10-28",
+   "equity": 100.44,
+   "acct_index": 100.44,
+   "spy_index": 100.45
+  },
+  {
+   "day": "2026-10-29",
+   "equity": 100.26,
+   "acct_index": 100.26,
+   "spy_index": 100.45
+  },
+  {
+   "day": "2026-10-30",
+   "equity": 101.0,
+   "acct_index": 101.0,
+   "spy_index": 100.01
+  },
+  {
+   "day": "2026-11-02",
+   "equity": 101.0,
+   "acct_index": 101.0,
+   "spy_index": 100.52
+  },
+  {
+   "day": "2026-11-03",
+   "equity": 100.79,
+   "acct_index": 100.79,
+   "spy_index": 101.85
+  },
+  {
+   "day": "2026-11-04",
+   "equity": 100.86,
+   "acct_index": 100.86,
+   "spy_index": 101.51
+  },
+  {
+   "day": "2026-11-05",
+   "equity": 100.86,
+   "acct_index": 100.86,
+   "spy_index": 101.11
+  },
+  {
+   "day": "2026-11-06",
+   "equity": 101.54,
+   "acct_index": 101.54,
+   "spy_index": 100.27
+  },
+  {
+   "day": "2026-11-09",
+   "equity": 101.84,
+   "acct_index": 101.84,
+   "spy_index": 102.48
+  },
+  {
+   "day": "2026-11-10",
+   "equity": 101.84,
+   "acct_index": 101.84,
+   "spy_index": 102.77
+  },
+  {
+   "day": "2026-11-11",
+   "equity": 101.94,
+   "acct_index": 101.94,
+   "spy_index": 103.24
+  },
+  {
+   "day": "2026-11-12",
+   "equity": 101.8,
+   "acct_index": 101.8,
+   "spy_index": 101.59
+  },
+  {
+   "day": "2026-11-13",
+   "equity": 101.8,
+   "acct_index": 101.8,
+   "spy_index": 102.64
+  },
+  {
+   "day": "2026-11-16",
+   "equity": 102.15,
+   "acct_index": 102.15,
+   "spy_index": 103.6
+  },
+  {
+   "day": "2026-11-17",
+   "equity": 102.52,
+   "acct_index": 102.52,
+   "spy_index": 102.9
+  },
+  {
+   "day": "2026-11-18",
+   "equity": 102.52,
+   "acct_index": 102.52,
+   "spy_index": 102.97
+  },
+  {
+   "day": "2026-11-19",
+   "equity": 103.02,
+   "acct_index": 103.02,
+   "spy_index": 104.06
+  },
+  {
+   "day": "2026-11-20",
+   "equity": 103.54,
+   "acct_index": 103.54,
+   "spy_index": 104.37
+  },
+  {
+   "day": "2026-11-23",
+   "equity": 103.54,
+   "acct_index": 103.54,
+   "spy_index": 104.04
+  },
+  {
+   "day": "2026-11-24",
+   "equity": 103.64,
+   "acct_index": 103.64,
+   "spy_index": 103.66
+  }
+ ],
+ "positions": [
+  {
+   "symbol": "NVDA",
+   "shares": 0.124782,
+   "cost": 20.0,
+   "price": 160.81,
+   "value": 20.07,
+   "opened": "2026-11-23",
+   "pnl": 0.07,
+   "pnl_pct": 0.33
+  },
+  {
+   "symbol": "JPM",
+   "shares": 0.074093,
+   "cost": 20.0,
+   "price": 270.45,
+   "value": 20.04,
+   "opened": "2026-11-23",
+   "pnl": 0.04,
+   "pnl_pct": 0.19
+  }
+ ],
+ "symbols": [
+  {
+   "symbol": "GOOGL",
+   "trades": 6,
+   "traded_dollars": 119.64,
+   "realized_pnl": -0.36,
+   "wins": 1,
+   "losses": 2,
+   "open_pnl": null
+  },
+  {
+   "symbol": "META",
+   "trades": 4,
+   "traded_dollars": 82.08,
+   "realized_pnl": 2.08,
+   "wins": 2,
+   "losses": 0,
+   "open_pnl": null
+  },
+  {
+   "symbol": "AMZN",
+   "trades": 4,
+   "traded_dollars": 80.77,
+   "realized_pnl": 0.77,
+   "wins": 2,
+   "losses": 0,
+   "open_pnl": null
+  },
+  {
+   "symbol": "MSFT",
+   "trades": 4,
+   "traded_dollars": 79.95,
+   "realized_pnl": -0.05,
+   "wins": 1,
+   "losses": 1,
+   "open_pnl": null
+  },
+  {
+   "symbol": "JPM",
+   "trades": 3,
+   "traded_dollars": 60.65,
+   "realized_pnl": 0.65,
+   "wins": 1,
+   "losses": 0,
+   "open_pnl": 0.04
+  },
+  {
+   "symbol": "NVDA",
+   "trades": 3,
+   "traded_dollars": 59.31,
+   "realized_pnl": -0.69,
+   "wins": 0,
+   "losses": 1,
+   "open_pnl": 0.07
+  },
+  {
+   "symbol": "AAPL",
+   "trades": 2,
+   "traded_dollars": 40.77,
+   "realized_pnl": 0.77,
+   "wins": 1,
+   "losses": 0,
+   "open_pnl": null
+  },
+  {
+   "symbol": "QQQ",
+   "trades": 2,
+   "traded_dollars": 40.28,
+   "realized_pnl": 0.28,
+   "wins": 1,
+   "losses": 0,
+   "open_pnl": null
+  },
+  {
+   "symbol": "XLE",
+   "trades": 2,
+   "traded_dollars": 40.09,
+   "realized_pnl": 0.09,
+   "wins": 1,
+   "losses": 0,
+   "open_pnl": null
+  }
+ ],
+ "trades": [
+  {
+   "id": 30,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-23",
+   "mode": "paper",
+   "symbol": "JPM",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 269.93,
+   "shares": 0.07409328344385581,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 29,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-23",
+   "mode": "paper",
+   "symbol": "NVDA",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 160.28,
+   "shares": 0.12478163214374843,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 28,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-20",
+   "mode": "paper",
+   "symbol": "MSFT",
+   "side": "sell",
+   "dollars": 19.57,
+   "price": 357.41,
+   "shares": 0.05476601221282072,
+   "strategy": "pullback",
+   "reason": "Hit stop-loss"
+  },
+  {
+   "id": 27,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-20",
+   "mode": "paper",
+   "symbol": "META",
+   "side": "sell",
+   "dollars": 21.45,
+   "price": 714.25,
+   "shares": 0.030031382795020795,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 26,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-18",
+   "mode": "paper",
+   "symbol": "MSFT",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 365.19,
+   "shares": 0.05476601221282072,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 25,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-18",
+   "mode": "paper",
+   "symbol": "META",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 665.97,
+   "shares": 0.030031382795020795,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 24,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-17",
+   "mode": "paper",
+   "symbol": "META",
+   "side": "sell",
+   "dollars": 20.63,
+   "price": 655.82,
+   "shares": 0.03145544336447422,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 23,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-17",
+   "mode": "paper",
+   "symbol": "XLE",
+   "side": "sell",
+   "dollars": 20.09,
+   "price": 91.28,
+   "shares": 0.2201188641866608,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 22,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-13",
+   "mode": "paper",
+   "symbol": "META",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 635.82,
+   "shares": 0.03145544336447422,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 21,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-13",
+   "mode": "paper",
+   "symbol": "XLE",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 90.86,
+   "shares": 0.2201188641866608,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 20,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-12",
+   "mode": "paper",
+   "symbol": "NVDA",
+   "side": "sell",
+   "dollars": 19.31,
+   "price": 164.96,
+   "shares": 0.11705489874751257,
+   "strategy": "pullback",
+   "reason": "Hit stop-loss"
+  },
+  {
+   "id": 19,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-12",
+   "mode": "paper",
+   "symbol": "JPM",
+   "side": "sell",
+   "dollars": 20.65,
+   "price": 262.95,
+   "shares": 0.07852683654638973,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 18,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-10",
+   "mode": "paper",
+   "symbol": "NVDA",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 170.86,
+   "shares": 0.11705489874751257,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 17,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-10",
+   "mode": "paper",
+   "symbol": "JPM",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 254.69,
+   "shares": 0.07852683654638973,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 16,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-09",
+   "mode": "paper",
+   "symbol": "AAPL",
+   "side": "sell",
+   "dollars": 20.77,
+   "price": 236.39,
+   "shares": 0.08788118463836891,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 15,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-09",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "sell",
+   "dollars": 20.21,
+   "price": 175.1,
+   "shares": 0.11539349180706208,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 14,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-05",
+   "mode": "paper",
+   "symbol": "AAPL",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 227.58,
+   "shares": 0.08788118463836891,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 13,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-05",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 173.32,
+   "shares": 0.11539349180706208,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 12,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-04",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "sell",
+   "dollars": 19.58,
+   "price": 171.9,
+   "shares": 0.11392116655274549,
+   "strategy": "pullback",
+   "reason": "Hit stop-loss"
+  },
+  {
+   "id": 11,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-04",
+   "mode": "paper",
+   "symbol": "QQQ",
+   "side": "sell",
+   "dollars": 20.28,
+   "price": 499.06,
+   "shares": 0.04064049418840933,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 10,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-02",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 175.56,
+   "shares": 0.11392116655274549,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 9,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-11-02",
+   "mode": "paper",
+   "symbol": "QQQ",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 492.12,
+   "shares": 0.04064049418840933,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 8,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-30",
+   "mode": "paper",
+   "symbol": "AMZN",
+   "side": "sell",
+   "dollars": 20.71,
+   "price": 223.06,
+   "shares": 0.09285913269570062,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 7,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-30",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "sell",
+   "dollars": 19.85,
+   "price": 172.1,
+   "shares": 0.1153203021391916,
+   "strategy": "pullback",
+   "reason": "Hit stop-loss"
+  },
+  {
+   "id": 6,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-28",
+   "mode": "paper",
+   "symbol": "AMZN",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 215.38,
+   "shares": 0.09285913269570062,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 5,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-28",
+   "mode": "paper",
+   "symbol": "GOOGL",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 173.43,
+   "shares": 0.1153203021391916,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 4,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-27",
+   "mode": "paper",
+   "symbol": "AMZN",
+   "side": "sell",
+   "dollars": 20.06,
+   "price": 214.77,
+   "shares": 0.09338812103100486,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 3,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-27",
+   "mode": "paper",
+   "symbol": "MSFT",
+   "side": "sell",
+   "dollars": 20.38,
+   "price": 426.37,
+   "shares": 0.04778744146038421,
+   "strategy": "pullback",
+   "reason": "Hit take-profit"
+  },
+  {
+   "id": 2,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-23",
+   "mode": "paper",
+   "symbol": "AMZN",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 214.16,
+   "shares": 0.09338812103100486,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  },
+  {
+   "id": 1,
+   "ts": "2026-11-25T17:30:21",
+   "day": "2026-10-23",
+   "mode": "paper",
+   "symbol": "MSFT",
+   "side": "buy",
+   "dollars": 20.0,
+   "price": 418.52,
+   "shares": 0.04778744146038421,
+   "strategy": "pullback",
+   "reason": "Pulled back 3.4% from 10-day high, above 50-day avg"
+  }
+ ],
+ "closed": [
+  {
+   "day": "2026-11-20",
+   "symbol": "MSFT",
+   "strategy": "pullback",
+   "pnl": -0.43,
+   "pnl_pct": -2.15
+  },
+  {
+   "day": "2026-11-20",
+   "symbol": "META",
+   "strategy": "pullback",
+   "pnl": 1.45,
+   "pnl_pct": 7.25
+  },
+  {
+   "day": "2026-11-17",
+   "symbol": "META",
+   "strategy": "pullback",
+   "pnl": 0.63,
+   "pnl_pct": 3.15
+  },
+  {
+   "day": "2026-11-17",
+   "symbol": "XLE",
+   "strategy": "pullback",
+   "pnl": 0.09,
+   "pnl_pct": 0.45
+  },
+  {
+   "day": "2026-11-12",
+   "symbol": "NVDA",
+   "strategy": "pullback",
+   "pnl": -0.69,
+   "pnl_pct": -3.45
+  },
+  {
+   "day": "2026-11-12",
+   "symbol": "JPM",
+   "strategy": "pullback",
+   "pnl": 0.65,
+   "pnl_pct": 3.25
+  },
+  {
+   "day": "2026-11-09",
+   "symbol": "AAPL",
+   "strategy": "pullback",
+   "pnl": 0.77,
+   "pnl_pct": 3.85
+  },
+  {
+   "day": "2026-11-09",
+   "symbol": "GOOGL",
+   "strategy": "pullback",
+   "pnl": 0.21,
+   "pnl_pct": 1.05
+  },
+  {
+   "day": "2026-11-04",
+   "symbol": "GOOGL",
+   "strategy": "pullback",
+   "pnl": -0.42,
+   "pnl_pct": -2.1
+  },
+  {
+   "day": "2026-11-04",
+   "symbol": "QQQ",
+   "strategy": "pullback",
+   "pnl": 0.28,
+   "pnl_pct": 1.4
+  },
+  {
+   "day": "2026-10-30",
+   "symbol": "AMZN",
+   "strategy": "pullback",
+   "pnl": 0.71,
+   "pnl_pct": 3.55
+  },
+  {
+   "day": "2026-10-30",
+   "symbol": "GOOGL",
+   "strategy": "pullback",
+   "pnl": -0.15,
+   "pnl_pct": -0.75
+  },
+  {
+   "day": "2026-10-27",
+   "symbol": "AMZN",
+   "strategy": "pullback",
+   "pnl": 0.06,
+   "pnl_pct": 0.3
+  },
+  {
+   "day": "2026-10-27",
+   "symbol": "MSFT",
+   "strategy": "pullback",
+   "pnl": 0.38,
+   "pnl_pct": 1.9
+  }
+ ],
+ "notes": [
+  {
+   "day": "2026-11-25",
+   "kind": "takeaway",
+   "text": "Take-profits are paying more than stop-losses cost, so the plan can survive a few losing streaks."
+  },
+  {
+   "day": "2026-11-25",
+   "kind": "takeaway",
+   "text": "Two of three stop-losses came within a day of entry. Entries may be too early; consider waiting for a green day after the pullback."
+  }
+ ],
+ "rejections": [
+  {
+   "day": "2026-11-25",
+   "symbol": "NVDA",
+   "side": "buy",
+   "dollars": 40.0,
+   "blocked_by": [
+    "$40.00 is over the $25.00 per-order cap"
+   ]
+  }
+ ]
+}

@@ -5,3 +5,4 @@ data/*.db
 data/report.html
 .env
 data/demo*
+site/data/ledger.json
