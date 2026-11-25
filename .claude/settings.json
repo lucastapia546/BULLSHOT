@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__robinhood-trading__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && python3 -m tradeagent.hook_guard"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m tradeagent.cli:*)",
+      "Bash(python -m tradeagent.cli:*)"
+    ]
+  }
+}
