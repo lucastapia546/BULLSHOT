@@ -76,3 +76,14 @@ def test_hook_process_blocks_orders_and_fails_closed():
     assert blocked.returncode == 2 and "BLOCKED" in blocked.stderr
     assert run(json.dumps({"tool_name": P + "get_equity_quotes", "tool_input": {}})).returncode == 0
     assert run("not json").returncode == 2
+
+
+@pytest.mark.parametrize("server", ["claude_ai_Robinhood", "claude_ai_Robinhood_Trading", "robinhood"])
+def test_cloud_connector_names_are_guarded(cfg, server):
+    assert classify(f"mcp__{server}__place_equity_order", cfg) == "order"
+    assert classify(f"mcp__{server}__get_bank_accounts", cfg) == "blocked"
+    assert classify(f"mcp__{server}__get_equity_quotes", cfg) == "read"
+
+
+def test_other_mcp_servers_untouched(cfg):
+    assert classify("mcp__github__create_pull_request", cfg) == "other"

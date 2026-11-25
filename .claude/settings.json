@@ -2,7 +2,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "mcp__robinhood-trading__.*",
+        "matcher": "mcp__.*",
         "hooks": [
           {
             "type": "command",

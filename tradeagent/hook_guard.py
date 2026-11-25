@@ -18,10 +18,13 @@ ALLOW, BLOCK = 0, 2
 
 def classify(tool_name: str, cfg) -> str:
     """Return 'other' (not Robinhood), 'read' (allowlisted), 'order', or 'blocked'."""
-    prefix = f"mcp__{cfg.server_name}__"
-    if not tool_name.startswith(prefix):
+    # Local: mcp__robinhood-trading__<tool>. Cloud claude.ai connector: mcp__<connector name>__<tool>,
+    # where the connector name varies, so match any MCP server whose name mentions Robinhood.
+    if not tool_name.startswith("mcp__") or "__" not in tool_name[5:]:
         return "other"
-    name = tool_name[len(prefix):]
+    server, name = tool_name[5:].rsplit("__", 1)
+    if server != cfg.server_name and "robinhood" not in server.lower():
+        return "other"
     if name in cfg.allowed_tools:
         return "read"
     if any(p in name.lower() for p in cfg.order_patterns):
