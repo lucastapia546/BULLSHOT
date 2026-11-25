@@ -22,4 +22,4 @@ in a local SQLite ledger. Nothing here places real orders.
 
 ## Dev
 - `python3 -m pytest -q` runs the guardrail and hook tests.
-- Python 3.11+ standard library only at runtime.
+- Python 3.9+. On 3.9/3.10 it needs `tomli` (`pip install -r requirements.txt`).

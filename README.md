@@ -31,7 +31,7 @@ tradeagent.cli  ──guardrails.py (config.toml caps)──▶  data/trades.db 
 
 ## Setup (on your computer)
 
-1. Python 3.11+ and [Claude Code](https://code.claude.com).
+1. Python 3.9+ (`python3 -m pip install -r requirements.txt`) and [Claude Code](https://code.claude.com).
 2. Clone this repo and `cd` into it.
 3. Connect Robinhood's MCP (you sign in on Robinhood's own page; never paste credentials into chat):
    ```
