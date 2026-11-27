@@ -41,7 +41,7 @@ ul.notes { list-style:none; padding:0; margin:0 } ul.notes li { padding:8px 0; b
 <div class="tiles">
  <div class="tile"><div class="k">Equity</div><div class="v">$100.00</div></div>
  <div class="tile"><div class="k">Return</div><div class="v">+0.00%</div></div>
- <div class="tile"><div class="k">SPY same period</div><div class="v">n/a</div></div>
+ <div class="tile"><div class="k">SPY same period</div><div class="v">+1.75%</div></div>
  <div class="tile"><div class="k">Win rate (0 closed)</div><div class="v">n/a</div></div>
  <div class="tile"><div class="k">Max drawdown</div><div class="v">0.00%</div></div>
  <div class="tile"><div class="k">Cash</div><div class="v">$100.00</div></div>
@@ -56,8 +56,8 @@ ul.notes { list-style:none; padding:0; margin:0 } ul.notes li { padding:8px 0; b
 
 <div class="grid2">
  <div class="card"><h2>Ready for real money?</h2><p class="verdict wait">Not ready for real money yet. Keep paper trading.</p>
-  <table><tr><th>Check</th><th class=num>Now</th><th class=num>Needed</th><th>Status</th></tr><tr><td>Trading days</td><td class=num>1</td><td class=num>≥ 20</td><td>✗ not yet</td></tr><tr><td>Closed trades</td><td class=num>0</td><td class=num>≥ 15</td><td>✗ not yet</td></tr><tr><td>Total return %</td><td class=num>0.0</td><td class=num>≥ 2.0</td><td>✗ not yet</td></tr><tr><td>Max drawdown %</td><td class=num>0.0</td><td class=num>≤ 8.0</td><td>✓ met</td></tr><tr><td>Beat SPY by (pts)</td><td class=num>n/a</td><td class=num>> 0</td><td>✗ not yet</td></tr></table></div>
- <div class="card"><h2>Takeaways</h2><ul class="notes"><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>The trend filter kept us out of a broad selloff (SPY about 6% below its 10-day high). Lesson to track: in a downtrend market this strategy may sit idle for many days, which slows progress toward the 15-closed-trade graduation bar. Don&#x27;t loosen rules mid-test; revisit between sessions if idle streak exceeds ~5 days.</li><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>Day 1 (Nov 25): no trade. 9 of 10 watchlist names are below their 50-day average (SPY 716.23 vs 758.64, QQQ 632.54 vs 708.47, NVDA 147.81 vs 204.95, -4.9% today). Only AAPL is in an uptrend (354.69 vs 342.58), but it is just 1.7% off its 10-day high, short of the 3% pullback rule. Stayed 100% cash.</li></ul></div>
+  <table><tr><th>Check</th><th class=num>Now</th><th class=num>Needed</th><th>Status</th></tr><tr><td>Trading days</td><td class=num>2</td><td class=num>≥ 20</td><td>✗ not yet</td></tr><tr><td>Closed trades</td><td class=num>0</td><td class=num>≥ 15</td><td>✗ not yet</td></tr><tr><td>Total return %</td><td class=num>0.0</td><td class=num>≥ 2.0</td><td>✗ not yet</td></tr><tr><td>Max drawdown %</td><td class=num>0.0</td><td class=num>≤ 8.0</td><td>✓ met</td></tr><tr><td>Beat SPY by (pts)</td><td class=num>-1.75</td><td class=num>> 0</td><td>✗ not yet</td></tr></table></div>
+ <div class="card"><h2>Takeaways</h2><ul class="notes"><li><span class=tag>takeaway</span> <span class=muted>2026-11-27</span><br>Watch: in a market-wide correction the strict &#x27;above 50-day&#x27; rule can block every entry for days. Not changing the strategy mid-test; if we sit in cash for 5+ sessions while SPY recovers, consider a v2 that allows entries above the 20-day average, and log it as a plan note first.</li><li><span class=tag>takeaway</span> <span class=muted>2026-11-27</span><br>Nov 27 (half day): no trade. Only AAPL (358.70) is above its 50-day avg (343.48), but it sits just 0.6% below its 10-day high (360.83), short of the 3% pullback rule. The other 9 names, SPY included (728.73 vs 50d 757.21), are below their 50-day averages after a ~4-12% drawdown, so the uptrend filter kept us in cash during a broad rebound day (SPY +1.7%, AMZN +4.0%).</li><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>The trend filter kept us out of a broad selloff (SPY about 6% below its 10-day high). Lesson to track: in a downtrend market this strategy may sit idle for many days, which slows progress toward the 15-closed-trade graduation bar. Don&#x27;t loosen rules mid-test; revisit between sessions if idle streak exceeds ~5 days.</li><li><span class=tag>takeaway</span> <span class=muted>2026-11-25</span><br>Day 1 (Nov 25): no trade. 9 of 10 watchlist names are below their 50-day average (SPY 716.23 vs 758.64, QQQ 632.54 vs 708.47, NVDA 147.81 vs 204.95, -4.9% today). Only AAPL is in an uptrend (354.69 vs 342.58), but it is just 1.7% off its 10-day high, short of the 3% pullback rule. Stayed 100% cash.</li></ul></div>
 </div>
 
 <div class="card"><h2>By strategy</h2>
@@ -71,7 +71,7 @@ ul.notes { list-style:none; padding:0; margin:0 } ul.notes li { padding:8px 0; b
  <table><tr><th>Day</th><th>Order</th><th class=num>Amount</th><th>Why it was blocked</th></tr><tr><td colspan=4 class=muted>Nothing blocked</td></tr></table></div>
 </main></div>
 <script>
-const data = [{"day": "2026-11-25", "acct": 100.0, "spy": 100.0}];
+const data = [{"day": "2026-11-25", "acct": 100.0, "spy": 100.0}, {"day": "2026-11-27", "acct": 100.0, "spy": 101.75}];
 const svg = document.getElementById('svg'), tip = document.getElementById('tip');
 function draw() {
   const W = svg.clientWidth, H = 260, L = 44, R = 16, T = 12, B = 28;
